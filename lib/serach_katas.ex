@@ -16,6 +16,16 @@ defmodule SearchKatas do
       1
 
   """
+  def just_use_in(num, list) do
+    if num in list do
+      num
+    else
+      :notfound
+    end
+  end
+
+  # ----------------------
+
   def lin_search(_, []) do
     :notfound
   end
@@ -27,6 +37,8 @@ defmodule SearchKatas do
       lin_search(num, tail)
     end
   end
+
+  # ----------------------
 
   def bin_search(_, []) do
     :notfound
@@ -57,6 +69,8 @@ defmodule SearchKatas do
     end
   end
 
+  # ----------------------
+
   def jmp_search(_, []) do
     :notfound
   end
@@ -85,6 +99,8 @@ defmodule SearchKatas do
         jmp_search(num, List.flatten(right))
     end
   end
+
+  # ----------------------
 
   def interpolation_search(_, []) do
     :notfound
