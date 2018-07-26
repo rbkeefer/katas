@@ -1,21 +1,11 @@
 # Katas
 
-**TODO: Add description**
+Everyone needs to practice ...
 
-## Installation
+This is a collection of my practice sessions.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `katas` to your list of dependencies in `mix.exs`:
+## To Run Katas
 
-```elixir
-def deps do
-  [
-    {:katas, "~> 0.1.0"}
-  ]
-end
-```
+Everything has a test - this is the only way I know how to build things.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/katas](https://hexdocs.pm/katas).
-
+. mix test
