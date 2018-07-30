@@ -12,11 +12,14 @@ defmodule ProjectEuler do
       when current_value == max_value,
       do: sum_value
 
-  def _sum_mult35(current_value, max_value, sum_value) do
-    if rem(current_value, 3) == 0 || rem(current_value, 5) == 0 do
-      _sum_mult35(current_value + 1, max_value, sum_value + current_value)
-    else
-      _sum_mult35(current_value + 1, max_value, sum_value)
-    end
-  end
+  def _sum_mult35(current_value, max_value, sum_value)
+      when rem(current_value, 3) == 0,
+      do: _sum_mult35(current_value + 1, max_value, sum_value + current_value)
+
+  def _sum_mult35(current_value, max_value, sum_value)
+      when rem(current_value, 5) == 0,
+      do: _sum_mult35(current_value + 1, max_value, sum_value + current_value)
+
+  def _sum_mult35(current_value, max_value, sum_value),
+    do: _sum_mult35(current_value + 1, max_value, sum_value)
 end
