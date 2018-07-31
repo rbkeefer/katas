@@ -41,10 +41,14 @@ defmodule MathTest do
     assert 0 = Math.gcd(0, 0)
     assert 1 = Math.gcd(0, 1)
     assert 1 = Math.gcd(1, 0)
-
     assert 7 = Math.gcd(21, 35)
     assert 7 = Math.gcd(35, 21)
     assert 21 = Math.gcd(21, 42)
     assert 21 = Math.gcd(42, 21)
+  end
+
+  test "return a list of prime numbers from 2 to n" do
+    assert [2, 3, 5, 7] = Math.prime_numbers(10)
+    assert [2, 3, 5, 7, 11, 13, 17, 19] = Math.prime_numbers(20)
   end
 end

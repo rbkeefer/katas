@@ -19,7 +19,13 @@ defmodule Math do
   def _max([head | tail], bigno) when bigno > head, do: _max(tail, bigno)
   def _max([head | tail], _bigno), do: _max(tail, head)
 
-  def span(from, to) when to < from, do: "to must be greater than from"
-  def span(from, to) when from == to, do: [to]
+  def span(from, to) when to < from, do: []
   def span(from, to), do: [from | span(from + 1, to)]
+
+  def prime_numbers(n) do
+    primes =
+      for x <- span(2, n), Enum.all?(span(2, max(2, x - 1)), fn v -> rem(x, v) > 0 end), do: x
+
+    [2 | primes]
+  end
 end
