@@ -8,9 +8,17 @@ defmodule ProjectEuler do
     By considering the terms in the Fibonacci sequence whose values do not exceed four million,
     find the sum of the even-valued terms.
   """
-  def sum_even_fib(arg) do
-    42
-  end
+  require Integer
+
+  def sum_even_fib_nums(prev1, prev2, max_value, sum_value)
+      when prev2 < max_value and Integer.is_even(prev2),
+      do: sum_even_fib_nums(prev2, prev1 + prev2, max_value, sum_value + prev2)
+
+  def sum_even_fib_nums(prev1, prev2, max_value, sum_value)
+      when prev2 < max_value,
+      do: sum_even_fib_nums(prev2, prev1 + prev2, max_value, sum_value)
+
+  def sum_even_fib_nums(_prev1, _prev2, _max_no, sum_value), do: sum_value
 
   # -------------------------------------------------------
   @doc """
