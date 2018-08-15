@@ -1,4 +1,52 @@
 defmodule ProjectEuler do
+  require Integer
+
+  # -------------------------------------------------------
+  @doc """
+    Problem 4: https://projecteuler.net/problem=4
+    A palindromic number reads the same both ways. The largest palindrome made
+    from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+    Find the largest palindrome made from the product of two 3-digit numbers.
+  """
+  def largest_palindrome(max_no) do
+    find_max(max_no, max_no, 0)
+  end
+
+  defp find_max(x, _y, max_value) when x == 0, do: max_value
+  defp find_max(x, y, max_value) when y == 0, do: find_max(x - 1, 99, max_value)
+
+  defp find_max(x, y, max_value) do
+    if(is_palindrome?(x * y, x * y, 0)) do
+      x * y
+    else
+      find_max(x, y - 1, max_value)
+    end
+  end
+
+  defp is_palindrome?(x, a, b) when a < 1, do: x == b
+  defp is_palindrome?(x, a, b), do: is_palindrome?(x, div(a, 10), b * 10 + rem(a, 10))
+
+  # -------------------------------------------------------
+  @doc """
+    Problem 3: https://projecteuler.net/problem=3
+    The prime factors of 13195 are 5, 7, 13 and 29.
+    What is the largest prime factor of the number 600851475143?
+  """
+  def prime_factors(num) do
+    _prime_factors(num, 2)
+  end
+
+  defp _prime_factors(num, prime_num)
+       when num >= prime_num * prime_num and rem(num, prime_num) == 0,
+       do: [prime_num | _prime_factors(div(num, prime_num), prime_num)]
+
+  defp _prime_factors(num, prime_num)
+       when num >= prime_num * prime_num,
+       do: _prime_factors(num, prime_num + 1)
+
+  defp _prime_factors(num, _prime_num), do: [num]
+
   # -------------------------------------------------------
   @doc """
     Problem 2: https://projecteuler.net/problem=2
@@ -8,7 +56,6 @@ defmodule ProjectEuler do
     By considering the terms in the Fibonacci sequence whose values do not exceed four million,
     find the sum of the even-valued terms.
   """
-  require Integer
 
   def sum_even_fib_nums(prev1, prev2, max_value, sum_value)
       when prev2 < max_value and Integer.is_even(prev2),
