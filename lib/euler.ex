@@ -19,7 +19,7 @@ defmodule ProjectEuler do
   defp divisible_by(value, divisor) when rem(value, divisor) == 0,
     do: divisible_by(value, divisor + 1)
 
-  defp divisible_by(value, divisor), do: divisible_by(value + 1, 2)
+  defp divisible_by(value, _divisor), do: divisible_by(value + 1, 2)
 
   # -------------------------------------------------------
   @doc """
@@ -33,12 +33,12 @@ defmodule ProjectEuler do
     find_max(max_no, max_no, 0)
   end
 
-  defp find_max(x, _y, max_value) when x == 0, do: max_value
-  defp find_max(x, y, max_value) when y == 0, do: find_max(x - 1, 999, max_value)
+  defp find_max(x, _y, max_value) when x < 100, do: max_value
+  defp find_max(x, y, max_value) when y < 100, do: find_max(x - 1, 999, max_value)
 
   defp find_max(x, y, max_value) do
     if(is_palindrome?(x * y, x * y, 0)) do
-      x * y
+      find_max(x, y - 1, max(max_value, x * y))
     else
       find_max(x, y - 1, max_value)
     end
@@ -103,11 +103,11 @@ defmodule ProjectEuler do
        do: sum_value
 
   defp _sum_mult35(current_value, max_value, sum_value)
-       when rem(current_value, 3) == 0,
+       when rem(current_value, 3) == 0 and rem(current_value, 5) == 0,
        do: _sum_mult35(current_value + 1, max_value, sum_value + current_value)
 
   defp _sum_mult35(current_value, max_value, sum_value)
-       when rem(current_value, 5) == 0,
+       when rem(current_value, 3) == 0 or rem(current_value, 5) == 0,
        do: _sum_mult35(current_value + 1, max_value, sum_value + current_value)
 
   defp _sum_mult35(current_value, max_value, sum_value),

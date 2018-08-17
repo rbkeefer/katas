@@ -6,8 +6,7 @@ defmodule ProjectEulerTest do
   end
 
   test "Problem 4: Return largest palindrome" do
-    # assert 9009 = ProjectEuler.largest_palindrome(99)
-    assert 90909 = ProjectEuler.largest_palindrome(999)
+    assert 906_609 = ProjectEuler.largest_palindrome(999)
   end
 
   test "Problem 3: Return largest prime factor" do
@@ -24,6 +23,7 @@ defmodule ProjectEulerTest do
 
   test "Problem 1: Return multiples of 3 and 5" do
     assert 23 = ProjectEuler.sum_mult35(10)
+    assert 78 = ProjectEuler.sum_mult35(20)
     assert 233_168 = ProjectEuler.sum_mult35(1000)
   end
 end
