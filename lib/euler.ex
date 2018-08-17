@@ -3,6 +3,38 @@ defmodule ProjectEuler do
 
   # -------------------------------------------------------
   @doc """
+    Problem 6: https://projecteuler.net/problem=6
+    The sum of the squares of the first ten natural numbers is,
+
+             1^2 + 2^2 + ... + 10^2 = 385
+
+    The square of the sum of the first ten natural numbers is,
+
+             (1 + 2 + ... + 10)^2 = 55^2 = 3025
+
+    Hence the difference between the sum of the squares of the
+    first ten natural numbers and the square of the sum is
+    3025 − 385 = 2640.
+
+    Find the difference between the sum of the squares of the
+    first one hundred natural numbers and the square of the sum.
+  """
+  def square_difference(max_num) do
+    square_sum(1, max_num, 0) - sum_squares(1, max_num, 0)
+  end
+
+  def sum_squares(current_num, max_num, sum) when current_num > max_num, do: sum
+
+  def sum_squares(current_num, max_num, sum),
+    do: sum_squares(current_num + 1, max_num, sum + current_num * current_num)
+
+  def square_sum(current_num, max_num, sum) when current_num > max_num, do: sum * sum
+
+  def square_sum(current_num, max_num, sum),
+    do: square_sum(current_num + 1, max_num, sum + current_num)
+
+  # -------------------------------------------------------
+  @doc """
     Problem 5: https://projecteuler.net/problem=5
     2520 is the smallest number that can be divided by each of
     the numbers from 1 to 10 without any remainder.

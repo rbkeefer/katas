@@ -1,6 +1,11 @@
 defmodule ProjectEulerTest do
   use ExUnit.Case
 
+  test "Problem 6: Difference of sum of squares and square of sums" do
+    assert 2640 = ProjectEuler.square_difference(10)
+    assert 25_164_150 = ProjectEuler.square_difference(100)
+  end
+
   test "Problem 5: Smallest positive number divisible by 1 to 20" do
     assert 232_792_560 = ProjectEuler.smallest_divisible()
   end
