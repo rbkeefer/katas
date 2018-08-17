@@ -1,8 +1,12 @@
 defmodule ProjectEulerTest do
   use ExUnit.Case
 
+  test "Problem 5: Smallest positive number divisible by 1 to 20" do
+    assert 232_792_560 = ProjectEuler.smallest_divisible()
+  end
+
   test "Problem 4: Return largest palindrome" do
-    assert 9009 = ProjectEuler.largest_palindrome(99)
+    # assert 9009 = ProjectEuler.largest_palindrome(99)
     assert 90909 = ProjectEuler.largest_palindrome(999)
   end
 

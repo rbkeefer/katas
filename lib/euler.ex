@@ -3,6 +3,26 @@ defmodule ProjectEuler do
 
   # -------------------------------------------------------
   @doc """
+    Problem 5: https://projecteuler.net/problem=5
+    2520 is the smallest number that can be divided by each of
+    the numbers from 1 to 10 without any remainder.
+
+    What is the smallest positive number that is evenly divisible
+    by all of the numbers from 1 to 20?
+  """
+  def smallest_divisible() do
+    divisible_by(1, 2)
+  end
+
+  defp divisible_by(value, divisor) when divisor > 20, do: value
+
+  defp divisible_by(value, divisor) when rem(value, divisor) == 0,
+    do: divisible_by(value, divisor + 1)
+
+  defp divisible_by(value, divisor), do: divisible_by(value + 1, 2)
+
+  # -------------------------------------------------------
+  @doc """
     Problem 4: https://projecteuler.net/problem=4
     A palindromic number reads the same both ways. The largest palindrome made
     from the product of two 2-digit numbers is 9009 = 91 × 99.
@@ -14,7 +34,7 @@ defmodule ProjectEuler do
   end
 
   defp find_max(x, _y, max_value) when x == 0, do: max_value
-  defp find_max(x, y, max_value) when y == 0, do: find_max(x - 1, 99, max_value)
+  defp find_max(x, y, max_value) when y == 0, do: find_max(x - 1, 999, max_value)
 
   defp find_max(x, y, max_value) do
     if(is_palindrome?(x * y, x * y, 0)) do
