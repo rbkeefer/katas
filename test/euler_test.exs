@@ -1,6 +1,11 @@
 defmodule ProjectEulerTest do
   use ExUnit.Case
 
+  test "Problem 7: Calculate the nth prime number" do
+    assert true == ProjectEuler.is_prime?(5, 2, 104_743)
+    assert 104_743 = ProjectEuler.nth_prime_number(10001)
+  end
+
   test "Problem 6: Difference of sum of squares and square of sums" do
     assert 2640 = ProjectEuler.square_difference(10)
     assert 25_164_150 = ProjectEuler.square_difference(100)

@@ -3,6 +3,45 @@ defmodule ProjectEuler do
 
   # -------------------------------------------------------
   @doc """
+    Problem 7: https://projecteuler.net/problem=7
+    By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13,
+    we can see that the 6th prime is 13.
+
+    What is the 10 001st prime number?
+  """
+  def nth_prime_number(nth_prime) do
+    _nth_prime_number(2, 1, nth_prime, 2)
+  end
+
+  defp _nth_prime_number(_potential_prime, prime_counter, nth_prime, prime_num)
+       when prime_counter > nth_prime,
+       do: prime_num
+
+  defp _nth_prime_number(potential_prime, prime_counter, nth_prime, prime_num) do
+    if is_prime?(5, 2, potential_prime) do
+      _nth_prime_number(potential_prime + 1, prime_counter + 1, nth_prime, potential_prime)
+    else
+      _nth_prime_number(potential_prime + 1, prime_counter, nth_prime, prime_num)
+    end
+  end
+
+  def is_prime?(_i, _w, num) when num == 2, do: true
+  def is_prime?(_i, _w, num) when num == 3, do: true
+  def is_prime?(_i, _w, num) when rem(num, 2) == 0, do: false
+  def is_prime?(_i, _w, num) when rem(num, 3) == 0, do: false
+
+  def is_prime?(i, w, num) when i * i <= num do
+    if rem(num, i) == 0 do
+      false
+    else
+      is_prime?(i + w, 6 - w, num)
+    end
+  end
+
+  def is_prime?(_i, _w, _num), do: true
+
+  # -------------------------------------------------------
+  @doc """
     Problem 6: https://projecteuler.net/problem=6
     The sum of the squares of the first ten natural numbers is,
 
