@@ -14,7 +14,7 @@ defmodule Sab do
     |> Enum.join("\n")
   end
 
-  defp pad([], longest), do: []
+  defp pad([], _longest), do: []
 
   defp pad([head | tail], longest),
     do: [pad_leading(head, div(longest - String.length(head), 2)) | pad(tail, longest)]

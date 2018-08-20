@@ -24,5 +24,5 @@ defmodule NewEnum do
 
   def take(list, num), do: _take(list, 0, num)
   defp _take([head | tail], count, max) when count < max, do: [head | _take(tail, count + 1, max)]
-  defp _take(list, _count, _max), do: []
+  defp _take(_list, _count, _max), do: []
 end

@@ -1,6 +1,11 @@
 defmodule ProjectEulerTest do
   use ExUnit.Case
 
+  test "Problem 8: Largest value in series" do
+    assert 5832 == ProjectEuler.largest_in_series(4)
+    assert 23_514_624_000 == ProjectEuler.largest_in_series(13)
+  end
+
   test "Problem 7: Calculate the nth prime number" do
     assert true == ProjectEuler.is_prime?(5, 2, 104_743)
     assert 104_743 = ProjectEuler.nth_prime_number(10001)
