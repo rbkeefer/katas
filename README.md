@@ -2,10 +2,10 @@
 
 Everyone needs to practice ...
 
-This is a collection of my practice sessions.
+This is a collection of practice sessions.
 
 ## To Run Katas
 
-Everything has a test - this is the only way I know how to build things.
+Everything has a test - this is the only way to build things.
 
 . mix test
