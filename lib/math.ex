@@ -1,4 +1,10 @@
 defmodule Math do
+  def summer(from, to, _func) when from > to, do: 0
+  def summer(from, to, func), do: summer(from + 1, to, func) + func.(from)
+
+  def multiplier(from, to, _func) when from > to, do: 1
+  def multiplier(from, to, func), do: multiplier(from + 1, to, func) * func.(from)
+
   def sum_up(n) when n == 0, do: n
   def sum_up(n) when n > 0, do: sum_up(n - 1) + n
   def sum_up(n) when n < 0, do: sum_up(n + 1) + n

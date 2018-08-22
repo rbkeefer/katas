@@ -1,6 +1,10 @@
 defmodule ProjectEulerTest do
   use ExUnit.Case
 
+  test "Problem 9: Find Pythagorean triplet" do
+    assert 60 == ProjectEuler.pythagorean_triplet(12)
+  end
+
   test "Problem 8: Largest value in series" do
     assert 5832 == ProjectEuler.largest_in_series(4)
     assert 23_514_624_000 == ProjectEuler.largest_in_series(13)

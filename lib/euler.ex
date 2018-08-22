@@ -3,6 +3,31 @@ defmodule ProjectEuler do
 
   # -------------------------------------------------------
   @doc """
+    Problem 9: https://projecteuler.net/problem=9
+    A Pythagorean triplet is a set of three natural numbers,
+    a < b < c, for which,
+
+        a^2 + b^2 = c^2
+
+    For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2
+
+    There exists exactly one Pythagorean triplet for
+    which a + b + c = 1000.
+
+    Find the product abc.
+  """
+  def pythagorean_triplet(triplet_sum) do
+    # [a, b, c] = find_abc()
+    #
+    # if a + b + c == triplet_sum do
+    #   a * b * c
+    # else
+    #   # find next abc
+    # end
+  end
+
+  # -------------------------------------------------------
+  @doc """
     Problem 8: https://projecteuler.net/problem=8
 
     The four adjacent digits in the 1000-digit number that have
@@ -38,11 +63,11 @@ defmodule ProjectEuler do
     find_max_in_series(0, window_length, 0)
   end
 
-  def find_max_in_series(window_start, window_length, max_value)
-      when window_start > 1000 - window_length,
-      do: max_value
+  defp find_max_in_series(window_start, window_length, max_value)
+       when window_start > 1000 - window_length,
+       do: max_value
 
-  def find_max_in_series(window_start, window_length, max_value) do
+  defp find_max_in_series(window_start, window_length, max_value) do
     value =
       String.slice(@the_series, window_start, window_length)
       |> mult_string(0, window_length)
@@ -54,11 +79,11 @@ defmodule ProjectEuler do
     end
   end
 
-  def mult_string(_window, window_location, window_length)
-      when window_location >= window_length,
-      do: 1
+  defp mult_string(_window, window_location, window_length)
+       when window_location >= window_length,
+       do: 1
 
-  def mult_string(window, window_location, window_length) do
+  defp mult_string(window, window_location, window_length) do
     String.to_integer(String.at(window, window_location)) *
       mult_string(window, window_location + 1, window_length)
   end

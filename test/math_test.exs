@@ -1,6 +1,16 @@
 defmodule MathTest do
   use ExUnit.Case
 
+  test "Multiplier: Multiply the results of a function over a range" do
+    assert 3_628_800 = Math.multiplier(1, 10, & &1)
+    assert 1.0 = Float.ceil(Math.multiplier(1, 180, &:math.cos(:math.pi() * &1 / 180.0)))
+  end
+
+  test "Summer: Sum the results of a function over a range" do
+    assert 55 = Math.summer(1, 10, & &1)
+    assert -1.0 = Float.ceil(Math.summer(1, 180, &:math.cos(:math.pi() * &1 / 180.0)))
+  end
+
   test "Sum up to given value" do
     assert 3 = Math.sum_up(2)
     assert 15 = Math.sum_up(5)
