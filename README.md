@@ -2,10 +2,12 @@
 
 Everyone needs to practice ...
 
-This is a collection of practice sessions.
+This is a collection of Elixir practice sessions.
 
 ## To Run Katas
 
-Everything has a test - this is the only way to build things.
+Everything has a test (this is the only way to build software). All the tests are in the `test` directory.
 
-. mix test
+```shell
+$ mix test
+```
